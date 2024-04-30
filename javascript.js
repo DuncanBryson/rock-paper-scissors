@@ -1,26 +1,28 @@
 let playerScore = 0,
-    computerScore = 0 ;
+    computerScore = 0,
+    roundCounter = 0;
 
 if (confirm("Would you like to play?")) start(); 
 
 function start(keepPlaying) {
     let playerInput = prompt("rock, paper, or scissors?");
-     playerInput = playerInput.toLowerCase();
+    playerInput = playerInput.toLowerCase();
     let computerInput = getComputerInput();
     if (playerInput =='rock' || playerInput == 'paper' || playerInput == 'scissors'){
         alert('Computer rolls ' + computerInput);
         findWinner(playerInput, computerInput);
         alert(`Player Score ${playerScore} \nComputer Score ${computerScore}`);
-        playAgain();
+        playAgain(true);
     } else {
         alert("invalid input");
-        playAgain();
+        playAgain(false);
     }
 }
-function playAgain(){
-     if (confirm("Do you want to play again?")){
+function playAgain(valid){
+    if (valid) roundCounter++;
+    if (roundCounter < 5 && confirm("Do you want to play again?")){
         start();
-     } else alert("Thanks for playing");
+    } else alert("Thanks for playing!");
 }
 function getComputerInput() {
    let random =  Math.floor(Math.random()*3);
@@ -40,7 +42,7 @@ function findWinner(player,computer) {
 }
 function winAnnounce(winner, player, computer) {
     if (winner === 'computer'){
-        alert(`${computer} beats ${player}, you lose :()`);
+        alert(`${computer} beats ${player}, you lose :(`);
         computerScore++;
     } else if (winner === 'player'){
         alert(`${player} beats ${computer}, you win !!`);

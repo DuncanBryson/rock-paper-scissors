@@ -4,9 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROCK PAPER SCISSORS</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5vh;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    
-    <script src="javascript.js"></script>
+    <div class="container">
+        <button class="rock">ROCK</button>
+        <button class="paper">PAPER</button>
+        <button class="scissors">SCISSORS</button>
+    </div>
+    <div class="outputs">
+        <ul>
+            <li class="computerRoll"></li>
+            <li class="whoWins"></li>
+            <li class="score"></li>
+        </ul>
+    </div>
 </body>
+<script src="javascript.js"></script>
 </html>
